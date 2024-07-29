@@ -72,4 +72,12 @@ class cliente extends Conexion
          $resultado = self::ejecutar($sql);
          return $resultado;
      }
+
+     public function SeleccionarCliente(){
+        $sql = "SELECT * FROM clientes where cli_situacion = 1";
+        $resultado = self::servir($sql);
+        return $resultado;
+
+
+    }
 }

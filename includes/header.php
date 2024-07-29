@@ -123,7 +123,7 @@ body {
     background-color: gray;
     background-size: cover;
     color: white;
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     position: relative;
     overflow: hidden;

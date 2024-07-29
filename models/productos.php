@@ -60,4 +60,11 @@ class producto extends Conexion
          $resultado = self::ejecutar($sql);
          return $resultado;
      }
-}
+     public function SeleccionarProducto(){
+        $sql = "SELECT * FROM productos where producto_situacion = 1";
+        $resultado = self::servir($sql);
+        return $resultado;
+
+
+    }
+    }
