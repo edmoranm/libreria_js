@@ -16,7 +16,7 @@ const getClientes = async (alerta = 'si') => {
     const telefono = formulario.cli_telefono.value.trim()
     console.log(nombre, apellido, nit, telefono)
     
-    const url = `/libreria_crudjs/controladores/clientes/index.php?cli_nombre=${nombre}&cli_apellido=${apellido}&cli_nit=${nit}&cli_telefono=${telefono}`
+    const url = `/libreria_js/controladores/clientes/index.php?cli_nombre=${nombre}&cli_apellido=${apellido}&cli_nit=${nit}&cli_telefono=${telefono}`
     const config = {
         method: 'GET'
     }
@@ -117,7 +117,7 @@ const guardarClientes = async (e) => {
     e.preventDefault();
     btnGuardar.disabled = true;
 
-    const url = '/libreria_crudjs/controladores/clientes/index.php'
+    const url = '/libreria_js/controladores/clientes/index.php'
     const formData = new FormData(formulario)
     formData.append('tipo', 1)
     formData.delete('cli_id')
@@ -196,7 +196,7 @@ const modificar = async(e) => {
     e.preventDefault();
     btnModificar.disabled = true;
 
-    const url = '/libreria_crudjs/controladores/clientes/index.php';
+    const url = '/libreria_js/controladores/clientes/index.php';
     const formData = new FormData(formulario);
     formData.append('tipo', 2);
     formData.append('cli_id', formulario.cli_id.value);
@@ -272,7 +272,7 @@ const modificar = async(e) => {
 }
 
 const Eliminar = async(cli_id) => {
-    const url = '/libreria_crudjs/controladores/clientes/index.php';
+    const url = '/libreria_js/controladores/clientes/index.php';
     const formData = new FormData();
     formData.append('tipo', 3);
     formData.append('cli_id', cli_id);

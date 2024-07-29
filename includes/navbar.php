@@ -15,10 +15,9 @@
                     </a>
                     <ul class="dropdown-menu bg-light">
                         <li class="nav-item">
-                            <a class="nav-link" href="/libreria_crudjs/views/clientes/index.php">CLIENTES</a>
-                            <a class="nav-link" href="/libreria_crudjs/views/productos/index.php">PRODUCTOS</a>
-                            <a class="nav-link" href="/libreria_crudjs/views/proveedores/index.php">PROVEEDORES</a>
-                            <a class="nav-link" href="/libreria_crudjs/views/ventas/index.php">VENTAS</a>
+                            <a class="nav-link" href="/libreria_js/views/clientes/index.php">CLIENTES</a>
+                            <a class="nav-link" href="/libreria_js/views/productos/index.php">PRODUCTOS</a>
+                            <a class="nav-link" href="/libreria_js/views/ventas/index.php">VENTAS</a>
                         </li>
                     </ul>
                 </li>
