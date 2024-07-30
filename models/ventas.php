@@ -16,53 +16,28 @@ class detalle_venta extends Conexion
 
     public function guardar()
     {
-        $sql = "INSERT INTO detalle_ventas(cliente_detalle_id, producto_detalle_id) values('$this->cliente_detalle_id', '$this->producto_detalle_id')";
-        $resultado = self::ejecutar($sql);
+        $sql = "INSERT INTO Detalle_venta (cliente_detalle_id, producto_detalle_id) values('$this->cliente_detalle_id', '$this->producto_detalle_id')";
+        $resultado = $this->ejecutar($sql);
         return $resultado;
     }
 
     public function buscar()
     {
-        $sql = "SELECT * from detalle_ventas where cli_situacion = 1 ";
-
-        if ($this->cliente_detalle_id != '') {
-            $sql .= " and cliente_detalle_id like '%$this->cliente_detalle_id%' ";
-        }
-
-        if ($this->producto_detalle_id != '') {
-            $sql .= " and producto_detalle_id like '%$this->producto_detalle_id%' ";
-        }
-
-        if ($this->detalle_venta_id != null) {
-            $sql .= " and detalle_venta_id = $this->detalle_venta_id ";
-        }
+        $sql = "SELECT 
+            clientes.cli_nombre,
+            productos.producto_nombre,
+            productos.producto_precio
+        FROM
+            Detalle_venta
+        INNER JOIN
+            clientes ON Detalle_venta.cliente_detalle_id = clientes.cli_id
+        INNER JOIN
+            productos ON Detalle_venta.producto_detalle_id = productos.producto_id
+        WHERE
+            clientes.cli_situacion = 1
+            AND productos.producto_situacion = 1";
 
         $resultado = self::servir($sql);
         return $resultado;
-        
-    }
-
-    public function modificar()
-    {
-    $sql = "UPDATE detalle_ventas SET cliente_detalle_id = '$this->cliente_detalle_id', producto_detalle_id = '$this->producto_detalle_id' where detalle_venta_id = '$this->detalle_venta_id'";
-
-    $resultado = self::ejecutar($sql);
-    return $resultado;
-    }
-
-    public function eliminar()
-    {
-         $sql = "UPDATE detalle_ventas SET cli_situacion = 0 where detalle_venta_id = $this->detalle_venta_id";
-
-         $resultado = self::ejecutar($sql);
-         return $resultado;
-     }
-
-     public function Seleccionardetalle_venta(){
-        $sql = "SELECT * FROM detalle_ventas where cli_situacion = 1";
-        $resultado = self::servir($sql);
-        return $resultado;
-
-
     }
 }

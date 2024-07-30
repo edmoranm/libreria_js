@@ -15,14 +15,14 @@ $clientes = $vercliente->SeleccionarCliente();
     <h1 class="text-center">Formulario de Ventas</h1>
     <div class="row justify-content-center mb-3">
         <form class="col-lg-8 border bg-light p-3">
-            <input type="hidden" name="venta_id" id="venta_id">
+            <input type="hidden" name="Detalle_venta_id" id="Detalle_venta_id">
             <div class="row mb-3">
                 <div class="col">
                     <label for="cliente_detalle_id">Cliente</label>
                     <select id="cliente_detalle_id" name="cliente_detalle_id" class="form-control">
                     <option value="">SELECCIONE</option>
                     <?php foreach ($clientes as $cliente) : ?>
-                        <option value="<?= $cliente['cliente_id'] ?>">
+                        <option value="<?= $cliente['cli_id'] ?>">
                             <?= $cliente['cli_nombre'] ?>
                             <?= $cliente['cli_apellido'] ?>
                         </option>
@@ -40,7 +40,6 @@ $clientes = $vercliente->SeleccionarCliente();
                     <?php foreach ($productos as $producto) : ?>
                         <option value="<?= $producto['producto_id'] ?>">
                             <?= $producto['producto_nombre'] ?>
-                            <?= $producto['producto_apellido'] ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -54,9 +53,7 @@ $clientes = $vercliente->SeleccionarCliente();
                 <div class="col">
                     <button type="button" id="btnBuscar" class="btn btn-info w-100">Buscar</button>
                 </div>
-                <div class="col">
-                    <button type="button" id="btnCancelar" class="btn btn-secondary w-100">Cancelar</button>
-                </div>
+
                 <div class="col">
                     <button type="reset" id="btnLimpiar" class="btn btn-secondary w-100">Limpiar</button>
                 </div>
@@ -66,26 +63,25 @@ $clientes = $vercliente->SeleccionarCliente();
     <div class="row justify-content-center">
         <div class="col-lg-8 table-responsive">
             <h2 class="text-center">Listado de clientes</h2>
-            <table class="table table-bordered table-hover" id="tablaClientes">
+            <table class="table table-bordered table-hover" id="tablaDetalle_venta">
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>nit</th>
                         <th>Producto</th>
                         <th>Precio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="5">No hay clientes disponibles</td>
+                        <td colspan="4">No hay clientes disponibles</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <script defer src="/libreria_js/src/js/funciones.js"></script>
 <script defer src="/libreria_js/src/js/ventas/index.js"></script>
 <?php include_once '../../includes/footer.php' ?>
